@@ -69,5 +69,70 @@ public class MyBinarySearchTree {
         }
         return counter;
     }
+
+    public void preOrderTraverse() {
+        recursionPreOrderTraverse(root);
+        System.out.println();
+    }
+
+    // A recursive function to do preorder traversal of BST
+    private void recursionPreOrderTraverse(TreeNode root) {
+        if (root != null) {
+            System.out.print(root.getData() + " ");
+            recursionPreOrderTraverse(root.getLeft());
+            recursionPreOrderTraverse(root.getRight());
+        }
+    }
+
+    public void postOrderTraverse() {
+        recursionPostOrderTraverse(root);
+        System.out.println();
+    }
+
+    // A recursive function to do preorder traversal of BST
+    private void recursionPostOrderTraverse(TreeNode root) {
+        if (root != null) {
+            recursionPostOrderTraverse(root.getLeft());
+            recursionPostOrderTraverse(root.getRight());
+            System.out.print(root.getData() + " ");
+        }
+    }
+
+    public boolean search(int data) {
+        TreeNode node = searchRec(root, data);
+        if (node == null) {
+            return false;
+        } else if (node.getData() == data) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public TreeNode searchRec(TreeNode root, int data) {
+        // Base Cases: root is null or key is present at root
+        if (root == null || root.getData() == data)
+            return root;
+
+        // val is greater than root's key
+        if (root.getData() > data)
+            return searchRec(root.getLeft(), data);
+
+        return searchRec(root.getRight(), data);
+    }
+
+    public int count() {
+        return countRecursion(root);
+    }
+
+    public int countRecursion(TreeNode root) {
+        if (root == null)
+            return 0;
+        int counter = 0;
+        counter++;
+        counter += (countRecursion(root.getLeft()) + countRecursion(root.getRight()));
+        return counter;
+    }
+
 }
 
