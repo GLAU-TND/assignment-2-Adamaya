@@ -30,6 +30,6 @@ public class MyMain {
                 "i.e. in pre order root is the first element where as in post order root is the last element. is TRUE");
         System.out.println("Cond" +
                 "ition B :They have common mid point,\n" +
-                "i.e. both the traversal will give same element at the mid position for odd number of nodes. is TRUE");
+                "i.e. both the traversal will give same element at the mid position for odd number of nodes. is FALSE");
     }
 }
