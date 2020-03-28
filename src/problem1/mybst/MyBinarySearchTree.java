@@ -19,4 +19,18 @@ public class MyBinarySearchTree {
     public TreeNode getRoot() {
         return root;
     }
+
+    TreeNode insertDataIntoNode(TreeNode root, int data) {
+        if (root == null) {
+            root = new TreeNode(data);
+            return root;
+        } else {
+            if (root.getData() > data) {
+                root.setLeft(insertDataIntoNode(root.getLeft(), data));
+            } else if (root.getData() < data) {
+                root.setRight(insertDataIntoNode(root.getRight(), data));
+            }
+            return root;
+        }
+    }
 }
