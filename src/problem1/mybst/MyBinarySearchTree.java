@@ -37,4 +37,35 @@ public class MyBinarySearchTree {
             return root;
         }
     }
+
+    private void recursionInOrderTraverse(TreeNode root) {
+        if (root != null) {
+            recursionInOrderTraverse(root.getLeft());
+            System.out.print(root.getData() + " ");
+            recursionInOrderTraverse(root.getRight());
+        }
+    }
+
+    public void inOrderTraverse() {
+        recursionInOrderTraverse(root);
+        System.out.println();
+    }
+
+    public int traverseNoLeftNode() {
+        int noOfNodesNotHavingLeftChild = recursionLeftNodesOnly(root, false);
+        System.out.println();
+        return noOfNodesNotHavingLeftChild;
+
+    }
+
+    private int recursionLeftNodesOnly(TreeNode root, boolean left) {
+        int counter = 0;
+        if (root != null) {
+            if (root.getLeft() == null) {
+                counter++;
+            }
+            return counter = counter + recursionLeftNodesOnly(root.getLeft(), true) + recursionLeftNodesOnly(root.getRight(), false);
+        }
+        return counter;
+    }
 }
