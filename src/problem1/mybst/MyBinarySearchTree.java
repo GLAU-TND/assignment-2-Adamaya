@@ -20,6 +20,10 @@ public class MyBinarySearchTree {
         return root;
     }
 
+    public void insertData(int data) {
+        root = insertDataIntoNode(root, data);
+    }
+
     TreeNode insertDataIntoNode(TreeNode root, int data) {
         if (root == null) {
             root = new TreeNode(data);
