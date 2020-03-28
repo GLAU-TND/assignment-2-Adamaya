@@ -12,11 +12,9 @@ import problem5.student.Student;
 //to implement circular queue
 public class MyCircularQueue {
     private Node rear;
-    // a field to refer front end of queue
     private Node front;
-    private int size;// total number of elements in the queue
+    private int size;
 
-    // constructor
     public MyCircularQueue() {
         front = null;
         rear = null;
@@ -40,7 +38,6 @@ public class MyCircularQueue {
         return true;
     }
 
-    // a method to check whether queue is empty
     public boolean isEmpty() {
         boolean response = false;
         if (size == 0) {
@@ -49,7 +46,6 @@ public class MyCircularQueue {
         return response;
     }
 
-    // a method to add a new element in queue
     public void enqueue(Student element) {
         Node node = new Node(element);
         if (isEmpty()) {
@@ -66,17 +62,16 @@ public class MyCircularQueue {
     }
 
     public Node dequeue() {
-        Node res = null;
+        Node response = null;
         if (!isEmpty()) {
             if (front.getNext() != front) {
-                res = front;
+                response = front;
                 front = front.getNext();
                 rear.setNext(front);
-                res.setNext(null);
+                response.setNext(null);
                 size--;
             } else {
-                res = front;
-                //res.getNext(null);//redundant
+                response = front;
                 front = null;
                 rear = null;
                 size--;
@@ -84,7 +79,7 @@ public class MyCircularQueue {
         } else {
             System.out.println("Queue UnderFlow");
         }
-        return res;
+        return response;
 
     }
 
