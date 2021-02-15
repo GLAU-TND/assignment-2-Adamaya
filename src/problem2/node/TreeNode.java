@@ -1,18 +1,14 @@
-/*
- *  Created by IntelliJ IDEA.
- *  User: Vaibhav
- *  Date: 23-Mar-20
- *  Time: 7:17 PM
- */
-package problem1.node;
+package problem2.node;
 
 public class TreeNode {
-    public int data;
-    public TreeNode left, right;
+    private int data;
+    private TreeNode left;
+    private TreeNode right;
 
-    public TreeNode(int item) {
-        data = item;
-        left = right = null;
+    public TreeNode(int data) {
+        this.data = data;
+        this.left = null;
+        this.right = null;
     }
 
     public int getData() {

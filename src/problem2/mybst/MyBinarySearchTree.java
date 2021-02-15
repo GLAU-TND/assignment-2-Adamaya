@@ -1,12 +1,13 @@
 /*
  *  Created by IntelliJ IDEA.
- *  User: Vaibhav
- *  Date: 23-Mar-20
- *  Time: 7:17 PM
+ *  User: Adamaya Sharma
+ *  Date: 28-Mar-20
+ *  Time: 7:05 PM
  */
-package problem1.mybst;
 
-import problem1.node.TreeNode;
+package problem2.mybst;
+
+import problem2.node.TreeNode;
 
 // to implement BinarySearchTree
 public class MyBinarySearchTree {
@@ -68,4 +69,45 @@ public class MyBinarySearchTree {
         }
         return counter;
     }
+
+    public void preOrderTraverse() {
+        recursionPreOrderTraverse(root);
+        System.out.println();
+    }
+
+    private void recursionPreOrderTraverse(TreeNode root) {
+        if (root != null) {
+            System.out.print(root.getData() + " ");
+            recursionPreOrderTraverse(root.getLeft());
+            recursionPreOrderTraverse(root.getRight());
+        }
+    }
+
+    public void postOrderTraverse() {
+        recursionPostOrderTraverse(root);
+        System.out.println();
+    }
+
+    private void recursionPostOrderTraverse(TreeNode root) {
+        if (root != null) {
+            recursionPostOrderTraverse(root.getLeft());
+            recursionPostOrderTraverse(root.getRight());
+            System.out.print(root.getData() + " ");
+        }
+    }
+
+    public int count() {
+        return countRecursion(root);
+    }
+
+    public int countRecursion(TreeNode root) {
+        if (root == null)
+            return 0;
+        int counter = 0;
+        counter++;
+        counter += (countRecursion(root.getLeft()) + countRecursion(root.getRight()));
+        return counter;
+    }
+
 }
+
